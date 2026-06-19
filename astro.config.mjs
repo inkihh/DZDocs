@@ -2,21 +2,36 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// The wardog-site-experiment staging deploy runs on GitHub Pages, which serves a
-// project site from a sub-path (/<repo>/) rather than a domain root. That build needs
-// a matching `base` and its own `site`. The deploy workflow sets GH_PAGES=true; local
-// dev and the production (dayzmodders.net) build are unaffected.
-const ON_GITHUB_PAGES = process.env.GH_PAGES === 'true';
-
-// Canonical site URL. Used for sitemap, canonical links, and Open Graph.
-const SITE = ON_GITHUB_PAGES ? 'https://inkihh.github.io' : 'https://dayzmodders.net';
-
-// Sub-path the site is served from: the repo name on a project Pages site, the
-// root on the apex domain.
-const BASE = ON_GITHUB_PAGES ? '/wardog-site-experiment' : undefined;
+// GitHub Pages is the production host. It's a project site, so the whole site is
+// served from a sub-path rather than a domain root — `base` carries that everywhere.
+const SITE = 'https://inkihh.github.io';
+const BASE = '/wardog-site-experiment';
 
 // Source repository — drives the GitHub social link and per-page "Edit" links.
-const REPO = 'https://github.com/inkihh/dayzmodders.net';
+const REPO = 'https://github.com/inkihh/wardog-site-experiment';
+
+// Starlight base-prefixes the links it generates (sidebar, asset URLs, routing), but
+// it leaves root-absolute links written in page content (`/foo/`) literal — and those
+// would 404 under the sub-path. This rehype pass prepends the base to in-content
+// absolute links, so docs can keep linking the natural, base-agnostic way.
+function rehypeBaseLinks() {
+	return (tree) => {
+		const walk = (node) => {
+			if (
+				node.type === 'element' &&
+				node.tagName === 'a' &&
+				typeof node.properties?.href === 'string'
+			) {
+				const href = node.properties.href;
+				if (href.startsWith('/') && !href.startsWith('//') && !href.startsWith(`${BASE}/`)) {
+					node.properties.href = `${BASE}${href}`;
+				}
+			}
+			node.children?.forEach(walk);
+		};
+		walk(tree);
+	};
+}
 
 // Open every link that points to GitHub in a new tab. Covers them all in one
 // place — the header social icon, the hero button, per-page "Edit" links, and
@@ -45,6 +60,9 @@ const OPEN_GITHUB_IN_NEW_TAB = `
 export default defineConfig({
 	site: SITE,
 	base: BASE,
+	markdown: {
+		rehypePlugins: [rehypeBaseLinks],
+	},
 	integrations: [
 		starlight({
 			title: 'DayZ Modders',

@@ -22,9 +22,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      # Switches astro.config.mjs to the Pages site URL + project sub-path `base`.
-      GH_PAGES: 'true'
     steps:
       - name: Checkout
         uses: actions/checkout@v4

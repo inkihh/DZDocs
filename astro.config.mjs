@@ -2,36 +2,12 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// GitHub Pages is the production host. It's a project site, so the whole site is
-// served from a sub-path rather than a domain root — `base` carries that everywhere.
-const SITE = 'https://inkihh.github.io';
-const BASE = '/wardog-site-experiment';
+// Production runs on GitHub Pages under the custom domain dayzmodders.inkihh.de,
+// which serves from the domain root — so no `base` / sub-path is needed.
+const SITE = 'https://dayzmodders.inkihh.de';
 
 // Source repository — drives the GitHub social link and per-page "Edit" links.
 const REPO = 'https://github.com/inkihh/wardog-site-experiment';
-
-// Starlight base-prefixes the links it generates (sidebar, asset URLs, routing), but
-// it leaves root-absolute links written in page content (`/foo/`) literal — and those
-// would 404 under the sub-path. This rehype pass prepends the base to in-content
-// absolute links, so docs can keep linking the natural, base-agnostic way.
-function rehypeBaseLinks() {
-	return (tree) => {
-		const walk = (node) => {
-			if (
-				node.type === 'element' &&
-				node.tagName === 'a' &&
-				typeof node.properties?.href === 'string'
-			) {
-				const href = node.properties.href;
-				if (href.startsWith('/') && !href.startsWith('//') && !href.startsWith(`${BASE}/`)) {
-					node.properties.href = `${BASE}${href}`;
-				}
-			}
-			node.children?.forEach(walk);
-		};
-		walk(tree);
-	};
-}
 
 // Open every link that points to GitHub in a new tab. Covers them all in one
 // place — the header social icon, the hero button, per-page "Edit" links, and
@@ -59,10 +35,6 @@ const OPEN_GITHUB_IN_NEW_TAB = `
 // https://astro.build/config
 export default defineConfig({
 	site: SITE,
-	base: BASE,
-	markdown: {
-		rehypePlugins: [rehypeBaseLinks],
-	},
 	integrations: [
 		starlight({
 			title: 'DayZ Modders',

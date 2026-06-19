@@ -12,7 +12,7 @@ thing you can do is **add or improve a page**.
 
 ## The contribution model
 
-- **The source is open** in the [GitHub repository](https://github.com/inkihh/dayzmodders.net).
+- **The source is open** in the [GitHub repository](https://github.com/inkihh/wardog-site-experiment).
 - **Anyone can contribute** by editing Markdown and opening a pull request — you do
   not need repo access.
 - **Core contributors** who help maintain the site get direct access and review

@@ -1,10 +1,10 @@
-# dayzmodders.net
+# DayZ Modders
 
 A community-maintained knowledge base for **DayZ modding** — scripting, asset work,
 tooling, and onboarding. Built by modders, for modders, and published as a fast,
 static documentation site.
 
-🔗 **Live site:** https://dayzmodders.net
+🔗 **Live site:** https://dayzmodders.inkihh.de
 
 > **Status: early foundation.** The site is scaffolded and themed, with the full
 > discipline taxonomy in place. Most pages are stubs (flagged in the sidebar) waiting
@@ -27,7 +27,7 @@ Content is authored in Markdown and contributed through pull requests.
 - **Self-hosted fonts** via `@fontsource` (Inter for body, Oswald for display).
 - **Built-in search** — Starlight ships Pagefind search that works on every build.
   (A move to Algolia is planned once there's enough content; see below.)
-- **[Cloudflare Pages](https://pages.cloudflare.com/)** — CDN-backed hosting.
+- **[GitHub Pages](https://pages.github.com/)** — static hosting, built & deployed by GitHub Actions.
 
 ## Local development
 
@@ -62,34 +62,29 @@ under `src/content/docs/`, so adding a Markdown file is enough to extend the nav
 
 If you can write Markdown, you can contribute — no repo access needed. See
 **[CONTRIBUTING.md](./CONTRIBUTING.md)** for the quick start, or the
-[Contributing section](https://dayzmodders.net/contributing/overview/) on the site for
+[Contributing section](https://dayzmodders.inkihh.de/contributing/overview/) on the site for
 the full guidance.
 
 **House rules:** quality over volume · respect the DayZ EULA (no de-binarization /
 DeODOL) · original or vanilla assets only.
 
-## Deployment (Cloudflare Pages)
+## Deployment (GitHub Pages)
 
-The site is a static build deployed to Cloudflare Pages. Recommended project settings:
+The site is a static build published to **GitHub Pages** via GitHub Actions on every
+push to `main` — see [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml)
+(build with `withastro/action`, publish with `actions/deploy-pages`).
 
 | Setting | Value |
 | --- | --- |
-| Framework preset | Astro |
 | Build command | `npm run build` |
 | Build output directory | `dist` |
-| Node version | `22` (from `.nvmrc`, or set `NODE_VERSION=22`) |
+| Node version | `22` (from `.nvmrc`) |
 | Production branch | `main` |
-| Custom domain | `dayzmodders.net` |
+| Custom domain | `dayzmodders.inkihh.de` (set via [`public/CNAME`](./public/CNAME)) |
 
-Caching and security response headers are configured in
-[`public/_headers`](./public/_headers) (long-lived immutable caching for hashed assets,
-baseline security headers for everything else). `astro.config.mjs` sets
-`site: 'https://dayzmodders.net'`, which drives the generated sitemap and canonical
-URLs — update it if the domain changes.
-
-> Nothing here triggers a deploy on its own. Wiring the GitHub repo to a Cloudflare
-> Pages project and pointing the domain is a one-time infrastructure step done outside
-> this repo.
+`astro.config.mjs` sets `site: 'https://dayzmodders.inkihh.de'`, which drives the
+generated sitemap and canonical URLs — update it if the domain changes. HTTPS uses a
+GitHub-provisioned, auto-renewed Let's Encrypt certificate.
 
 ## License
 

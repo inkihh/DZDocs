@@ -1,0 +1,86 @@
+---
+title: DayZ Modders
+description: A community-maintained knowledge base for DayZ modding — scripting, asset work, tooling, and onboarding. Built by modders, for modders.
+template: splash
+hero:
+  tagline: The hard-won knowledge of the DayZ modding community, written down — searchable, durable, and welcoming to newcomers.
+  image:
+    file: ../../assets/hero.svg
+  actions:
+    - text: Start here
+      link: /getting-started/overview/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/inkihh/dayzmodders.net
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## A golden standard of reference material
+
+DayZ modding knowledge is scattered across Discord messages, half-finished repos,
+YouTube videos, and private mentorships — and a lot of it is simply gatekept. This
+site exists to gather it into one place that **outlives Discord scroll**: a curated,
+cross-linked reference for the esoteric, hard-to-find side of modding the game.
+
+It is not a Q&A queue and not an auto-generated API dump. It's a deliberately built
+knowledge base — closer to good project docs than a wiki — covering the subsystems,
+pipelines, and gotchas people actually run into.
+
+<hr class="hazard" />
+
+## Find your discipline
+
+<CardGrid>
+	<LinkCard
+		title="Getting Started"
+		href="/getting-started/overview/"
+		description="What this is, a modding overview, Workbench setup, and how to contribute."
+	/>
+	<LinkCard
+		title="Scripting"
+		href="/scripting/overview/"
+		description="EnScript basics and gotchas, common engine subsystems, native functions, and game structure."
+	/>
+	<LinkCard
+		title="Asset Work"
+		href="/asset-work/overview/"
+		description="The modeling pipeline: P3D setup, proxies, selections, memory points, RVMATs, textures, and configs."
+	/>
+	<LinkCard
+		title="Tooling & Setup"
+		href="/tooling-setup/overview/"
+		description="Packing, file patching, publishing, and a sane project workflow."
+	/>
+	<LinkCard
+		title="Contributing"
+		href="/contributing/overview/"
+		description="How to write docs, the style guide, and the pull-request process."
+	/>
+</CardGrid>
+
+<hr class="hazard" />
+
+## Built by the community
+
+<CardGrid>
+	<Card title="Quality over volume" icon="approve-check">
+		Genuinely useful material — not a flood of pages re-feeding what an LLM could
+		already tell you. People trust what feels well made.
+	</Card>
+	<Card title="If you can write Markdown, you can contribute" icon="pencil">
+		The source is open. Fix a typo, flesh out a stub, or write a whole guide —
+		every page has an **Edit** link, and changes land through pull requests.
+	</Card>
+	<Card title="Build a staircase, don't pull the ladder up" icon="heart">
+		A reaction to a cold, gatekeeping culture. The docs — and the way we
+		collaborate on them — are meant to model the opposite.
+	</Card>
+	<Card title="Human-authored, machine-readable" icon="open-book">
+		Written and curated by people who understand the material, and structured so
+		that LLM crawlers can consume it cleanly too.
+	</Card>
+</CardGrid>

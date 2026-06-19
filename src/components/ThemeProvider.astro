@@ -1,0 +1,15 @@
+---
+/*
+ * Dark-only override of Starlight's ThemeProvider.
+ * The site has no light mode and no theme switcher, so we simply force the
+ * dark theme on first paint (inlined to avoid any flash) and ignore any stored
+ * preference.
+ */
+---
+
+{/* Inlined to avoid FOUC. */}
+<script is:inline>
+	document.documentElement.dataset.theme = 'dark';
+	// No-op stub so any lingering picker code can never throw.
+	window.StarlightThemeProvider = { updatePickers() {} };
+</script>

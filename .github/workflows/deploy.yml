@@ -1,0 +1,46 @@
+name: Deploy to GitHub Pages
+
+# Builds the Astro Starlight site and publishes it to GitHub Pages
+# (staging: https://inkihh.github.io/wardog-site-experiment/).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Least-privilege token scopes required to deploy to Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; let an in-progress run finish rather than cancel it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Switches astro.config.mjs to the Pages site URL + project sub-path `base`.
+      GH_PAGES: 'true'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build with Astro
+        # Installs deps, runs `astro build`, and uploads ./dist as the Pages artifact.
+        uses: withastro/action@v3
+        with:
+          node-version: 22
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,218 @@
+/*
+ * DayZ Modders — theme (dark-only)
+ * --------------------------------
+ * Brand identity taken from the community logo: a deep navy field, clean white
+ * mark, with a blue primary accent and a single warm amber as the secondary
+ * "hazard" contrast. Strong, condensed typographic hierarchy.
+ *
+ * The site is dark-only (no light theme, no switcher), so there is a single
+ * palette here.
+ *
+ * Layout:
+ *   1. Fonts & shared tokens
+ *   2. Color tokens
+ *   3. Global type & accents
+ *   4. Header / sidebar chrome
+ *   5. Splash hero
+ *   6. Landing cards
+ */
+
+/* 1. Fonts & shared tokens ------------------------------------------------- */
+:root {
+	--sl-font: 'Inter Variable', ui-sans-serif, system-ui, -apple-system,
+		'Segoe UI', Roboto, sans-serif;
+	/* Condensed industrial face for display/headings. */
+	--dzm-font-display: 'Oswald Variable', 'Inter Variable', system-ui, sans-serif;
+
+	/* Warm secondary accent — the single contrast against the blue/navy. */
+	--dzm-amber: #f0a93b;
+
+	/* Hazard chevron stripe, reused in a few places. */
+	--dzm-hazard: repeating-linear-gradient(
+		-45deg,
+		var(--dzm-amber) 0,
+		var(--dzm-amber) 10px,
+		transparent 10px,
+		transparent 20px
+	);
+}
+
+/* 2. Color tokens ---------------------------------------------------------- */
+:root {
+	/* Blue accent. */
+	--sl-color-accent-low: #15315a;
+	--sl-color-accent: #2f7fe6;
+	--sl-color-accent-high: #97c2ff;
+
+	/* Cool navy-charcoal grayscale (light → dark). */
+	--sl-color-white: #eef2f8;
+	--sl-color-gray-1: #d4dbe8;
+	--sl-color-gray-2: #abb4c6;
+	--sl-color-gray-3: #7b8499;
+	--sl-color-gray-4: #49546a;
+	--sl-color-gray-5: #2a3242;
+	--sl-color-gray-6: #1a2231;
+	/* Page background — the exact dark navy of the brand logo. */
+	--sl-color-black: #10182a;
+
+	/* Tuned chrome surfaces — nav slightly deeper, sidebar flush with the page. */
+	--sl-color-bg-nav: #0e1524;
+	--sl-color-bg-sidebar: #10182a;
+	--sl-color-hairline-shade: #232c3c;
+}
+
+/* 3. Global type & accents ------------------------------------------------- */
+body {
+	font-feature-settings: 'cv05', 'ss01';
+}
+
+/* Condensed display face for headings, with a touch of tracking. */
+h1,
+h2,
+h3,
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3 {
+	font-family: var(--dzm-font-display);
+	font-weight: 600;
+	letter-spacing: 0.01em;
+}
+
+h1,
+.sl-markdown-content h1 {
+	letter-spacing: 0.005em;
+}
+
+/* Section headings read as stenciled labels. */
+.sl-markdown-content h2 {
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	border-bottom: 1px solid var(--sl-color-hairline-shade);
+	padding-bottom: 0.3rem;
+}
+
+/* Brand wordmark in the header. */
+.site-title {
+	font-family: var(--dzm-font-display);
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+/* A single hairline separates the header from the page. */
+.header {
+	border-bottom: 1px solid var(--sl-color-hairline-shade);
+}
+
+/* 4. Header / sidebar chrome ----------------------------------------------- */
+/* Active sidebar entry gets a blue spine. */
+.sidebar-content a[aria-current='page'] {
+	border-left: 2px solid var(--sl-color-accent);
+	padding-left: calc(0.5rem - 2px);
+	background-color: var(--sl-color-accent-low);
+	color: var(--sl-color-white);
+}
+
+/* Group labels read as utilitarian headers. */
+.sidebar-content summary .group-label span,
+summary .large {
+	font-family: var(--dzm-font-display);
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-2);
+}
+
+/* Link underline offset for legibility. */
+.sl-markdown-content a:not(:where(.not-content *)) {
+	text-underline-offset: 0.2em;
+}
+
+/* 5. Splash hero ----------------------------------------------------------- */
+.hero {
+	position: relative;
+	padding-block: clamp(1rem, 6vh, 4rem);
+}
+
+.hero::before {
+	content: '';
+	position: absolute;
+	inset: -2rem -50vw;
+	z-index: -1;
+	background:
+		radial-gradient(
+			60% 60% at 70% 20%,
+			color-mix(in srgb, var(--sl-color-accent) 16%, transparent) 0%,
+			transparent 60%
+		),
+		linear-gradient(180deg, var(--sl-color-bg-sidebar) 0%, var(--sl-color-black) 100%);
+	pointer-events: none;
+}
+
+.hero h1 {
+	font-family: var(--dzm-font-display);
+	font-weight: 700;
+	font-size: clamp(2.5rem, 7vw, 4.75rem);
+	line-height: 0.98;
+	text-transform: uppercase;
+	letter-spacing: 0.01em;
+}
+
+.hero .tagline {
+	max-width: 42ch;
+	color: var(--sl-color-gray-2);
+	font-size: var(--sl-text-lg);
+}
+
+/* Primary call-to-action — a clean, stamped button. */
+.hero .actions a[data-variant='primary'] {
+	border-radius: 2px;
+	font-family: var(--dzm-font-display);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	border: 1px solid color-mix(in srgb, var(--sl-color-accent) 70%, black);
+}
+
+.hero .actions a[data-variant='minimal'] {
+	font-family: var(--dzm-font-display);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+/* Blue glow under the hero mark. */
+.hero > img,
+.hero > picture > img {
+	filter: drop-shadow(0 0 28px color-mix(in srgb, var(--sl-color-accent) 24%, transparent));
+}
+
+/* 6. Landing cards --------------------------------------------------------- */
+.card {
+	border: 1px solid var(--sl-color-hairline-shade);
+	border-radius: 3px;
+	background: color-mix(in srgb, #9fb4d6 5%, var(--sl-color-black));
+	transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.card:hover {
+	border-color: color-mix(in srgb, var(--sl-color-accent) 55%, transparent);
+	transform: translateY(-2px);
+}
+
+.card .icon {
+	color: var(--sl-color-accent);
+}
+
+.card .title {
+	font-family: var(--dzm-font-display);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+/* A reusable hazard divider you can drop into MDX with <hr class="hazard" />. */
+hr.hazard {
+	border: 0;
+	height: 6px;
+	background: var(--dzm-hazard);
+	opacity: 0.8;
+	margin-block: 2.5rem;
+}

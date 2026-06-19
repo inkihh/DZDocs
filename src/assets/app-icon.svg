@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="DayZ Modders app icon">
+  <defs>
+    <linearGradient id="chip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141d33"/>
+      <stop offset="1" stop-color="#0d1424"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="54" fill="url(#chip)"/>
+  <text x="120" y="104" text-anchor="middle"
+        font-family="'Oswald Variable', Oswald, 'Arial Narrow', Arial, sans-serif"
+        font-weight="600" font-size="36" letter-spacing="3" fill="#f4f7fc">MODDERS</text>
+  <g transform="translate(60,128) scale(2.927)" fill="#f4f7fc">
+    <polygon points="0,3 11,3 11,14"/>
+    <polygon points="15,1 15,15 30,15"/>
+    <polygon points="22,2 41,2 41,22"/>
+  </g>
+</svg>

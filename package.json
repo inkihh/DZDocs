@@ -1,0 +1,30 @@
+{
+  "name": "dayzmodders-net",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Community-maintained knowledge base for DayZ modding — dayzmodders.net",
+  "homepage": "https://dayzmodders.net",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inkihh/dayzmodders.net.git"
+  },
+  "license": "CC-BY-4.0",
+  "engines": {
+    "node": ">=20.3.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.40.0",
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/oswald": "^5.2.8",
+    "astro": "^6.4.5",
+    "sharp": "^0.34.5"
+  }
+}

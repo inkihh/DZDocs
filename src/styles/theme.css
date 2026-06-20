@@ -62,6 +62,14 @@
 }
 
 /* 3. Global type & accents ------------------------------------------------- */
+/* Safety net against horizontal overflow (e.g. a full-bleed background landing a
+ * scrollbar-width past the edge): clip it so nothing can create a sideways
+ * scroll / an uncovered strip beside the fixed banner. `clip` (not `hidden`)
+ * avoids establishing a scroll container. */
+html {
+	overflow-x: clip;
+}
+
 body {
 	font-feature-settings: 'cv05', 'ss01';
 }
@@ -137,7 +145,12 @@ summary .large {
 .hero::before {
 	content: '';
 	position: absolute;
-	inset: -2rem -50vw;
+	/* Full-bleed background that reaches the viewport edges. `calc(50% - 50vw)`
+	 * lands exactly on each viewport edge for a horizontally centered element,
+	 * unlike a flat `-50vw`, which overshoots and creates horizontal overflow
+	 * (a sideways scroll past the fixed banner). */
+	inset-block: -2rem;
+	inset-inline: calc(50% - 50vw);
 	z-index: -1;
 	background:
 		radial-gradient(

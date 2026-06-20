@@ -20,11 +20,5 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# internal working docs — kept local, not published to the public repo
-AGENTS.md
-CLAUDE.md
-CONCEPT.md
-IMPLEMENTATION.md
-PROCESS.md
-RESEARCH.md
-TASK.md
+# private source dump — third-party Discord content, kept local (NOT for the public repo)
+raw_thread.txt

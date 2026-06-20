@@ -72,8 +72,8 @@ If you can write Markdown, you can contribute — no repo access needed. See
 [Contributing section](https://dzdocs.inkihh.de/contributing/overview/) on the site for
 the full guidance.
 
-**House rules:** quality over volume · respect the DayZ EULA (no de-binarization /
-DeODOL) · original or vanilla assets only.
+**House rules:** correctness first — AI-written is fine if it's right · respect the DayZ
+EULA (no de-binarization / DeODOL) · original or vanilla assets only.
 
 ## Deployment (GitHub Pages)
 

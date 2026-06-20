@@ -68,7 +68,8 @@ in the nav automatically. Use `sidebar.order` to position it.
 
 ## House rules
 
-- **Quality over volume.** Genuinely useful material, not filler.
+- **Correctness first.** Accurate, genuinely useful material. AI-assisted writing is
+  welcome — the bar is that it's *right*, not how it was produced.
 - **Respect the DayZ EULA.** No de-binarization tools/workflows (e.g. DeODOL).
 - **Original or vanilla assets only.** Never redistribute other people's models,
   RVMATs, or textures.

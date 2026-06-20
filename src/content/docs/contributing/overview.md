@@ -41,9 +41,9 @@ A few pages worth reading first:
 
 ## House rules
 
-- **Quality over volume.** The aim is genuinely useful material, not re-feeding people
-  what an LLM could already tell them. A flood of low-value pages would just recreate
-  the problem this site exists to solve.
+- **Correctness first.** The bar is accuracy — a page has to be *right* and actually
+  help someone get unstuck. AI-assisted, or even fully AI-drafted, writing is welcome;
+  what matters is that it's correct and useful, not how it was produced.
 - **Respect the EULA.** No de-binarization tools or workflows (e.g. DeODOL), and no
   redistributing other people's assets.
 - **Build a staircase, don't pull the ladder up.** Be welcoming. This project is a

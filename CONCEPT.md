@@ -127,16 +127,17 @@ that list grows as more are used.
 
 ## Design principles
 
-- **Quality over volume.** People trust what feels well made and thoughtfully put together.
-  The aim is genuinely useful material, not re-feeding people what an LLM could already tell
-  them. A flood of low-value pages would just recreate the problem on a new platform.
+- **Correctness over provenance.** What matters is whether a page is accurate and genuinely
+  helps someone get unstuck — not who, or what, wrote it. The initial content here was
+  AI-drafted, and AI-assisted contributions are welcome; the only bar is that they're *right*,
+  and the community owns verifying that. Modders care about getting help, not how it was made.
 - **A recognizable, deliberate identity.** The site deliberately avoids the easy, generic
   wiki route in favor of a themed, recognizable presentation — its own hero/landing page and
   considered layout — so it reads as something intentionally crafted.
-- **Human-authored content, machine-readable output.** Documentation is written and curated
-  by the community, with quality and accuracy owned by people who understand the material. The
-  output is structured so LLMs can consume it cleanly — making the knowledge useful to AI
-  readers is a welcome side effect, not the source of the content.
+- **Authorship-agnostic content, machine-readable output.** Documentation may be AI-drafted or
+  human-written — either is fine as long as it's correct, and accuracy is owned by the community
+  that reviews it. The output is also structured so LLMs can consume it cleanly, making the
+  knowledge useful to AI readers as well as people.
 - **Maintainability over short-term convenience.** Tooling decisions are made for the lifetime
   of the project and for the ability to comprehend and review changes — not for whatever is
   fastest to stand up today.
@@ -192,7 +193,7 @@ separately from this project:
    full topical category structure, and stood up the GitHub Pages deploy so contributors have
    somewhere to write into.
 2. **Writing** ✅ *(initial content complete — now ongoing maintenance/expansion)* — populate the
-   categories with genuinely useful, human-authored material. **Every section is now written and
+   categories with genuinely useful, correct material. **Every section is now written and
    the site is stub-free.** *Delivered:* the Getting Started onboarding pages (modding overview,
    Workbench setup), the full Scripting section (EnScript basics, common gotchas, game structure,
    and the engine subsystems — inventory, actions, networking, persistence), the full Asset Work

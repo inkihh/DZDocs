@@ -6,8 +6,8 @@ own pages, so they can be applied consistently by contributors. Sources are in-r
 
 ## Sources (in-repo)
 
-- **CONCEPT.md** — design principles ("quality over volume", "build a staircase, don't pull the
-  ladder up", welcoming to newcomers, machine-readable output), EULA discipline.
+- **CONCEPT.md** — design principles ("correctness over provenance", "build a staircase, don't
+  pull the ladder up", welcoming to newcomers, machine-readable output), EULA discipline.
 - **`contributing/writing-docs.md`** — "lead with the point", "write for someone one step
   behind you", "show don't tell", cross-link generously, be honest about uncertainty. The style
   guide is the *conventions* companion to that page's *structure* advice — don't duplicate.

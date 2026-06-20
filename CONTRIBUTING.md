@@ -1,4 +1,4 @@
-# Contributing to DayZ Modders
+# Contributing to DZDocs
 
 Thanks for helping build a knowledge base the DayZ modding community actually
 deserves. **If you can write Markdown, you can contribute.** You do not need repository
@@ -6,10 +6,10 @@ access — pull requests are the path for everyone.
 
 The full, reader-facing guidance lives on the site itself:
 
-- **[Contributing overview](https://dayzmodders.inkihh.de/contributing/overview/)** — the model and house rules
-- **[Writing docs](https://dayzmodders.inkihh.de/contributing/writing-docs/)** — how to structure a useful page
-- **[Style guide](https://dayzmodders.inkihh.de/contributing/style-guide/)** — voice, tone, conventions
-- **[Pull-request process](https://dayzmodders.inkihh.de/contributing/pr-process/)** — what happens after you open a PR
+- **[Contributing overview](https://dzdocs.inkihh.de/contributing/overview/)** — the model and house rules
+- **[Writing docs](https://dzdocs.inkihh.de/contributing/writing-docs/)** — how to structure a useful page
+- **[Style guide](https://dzdocs.inkihh.de/contributing/style-guide/)** — voice, tone, conventions
+- **[Pull-request process](https://dzdocs.inkihh.de/contributing/pr-process/)** — what happens after you open a PR
 
 This file is the quick repo-level version.
 

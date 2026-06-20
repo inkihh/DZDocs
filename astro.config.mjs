@@ -2,12 +2,12 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// Production runs on GitHub Pages under the custom domain dayzmodders.inkihh.de,
+// Production runs on GitHub Pages under the custom domain dzdocs.inkihh.de,
 // which serves from the domain root — so no `base` / sub-path is needed.
-const SITE = 'https://dayzmodders.inkihh.de';
+const SITE = 'https://dzdocs.inkihh.de';
 
 // Source repository — drives the GitHub social link and per-page "Edit" links.
-const REPO = 'https://github.com/inkihh/wardog-site-experiment';
+const REPO = 'https://github.com/inkihh/DZDocs';
 
 // Open every external link in a new tab. A small client-side pass covers them
 // all in one place — header social icons, hero buttons, per-page "Edit" links,
@@ -38,16 +38,16 @@ export default defineConfig({
 	site: SITE,
 	integrations: [
 		starlight({
-			title: 'DayZ Modders',
+			title: 'DZDocs',
 			description:
 				'A community-maintained knowledge base for DayZ modding — scripting, asset work, tooling, and onboarding.',
 			logo: {
 				src: './src/assets/logo-split.svg',
-				alt: 'DayZ Modders',
+				alt: 'DZDocs',
 			},
 			social: [
 				{ icon: 'github', label: 'GitHub', href: REPO },
-				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/MTsg9Rhc3q' },
+				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/EAMvFw9P93' },
 			],
 			editLink: {
 				baseUrl: `${REPO}/edit/main/`,

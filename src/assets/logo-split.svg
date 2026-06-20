@@ -5,13 +5,13 @@
     nudged left, and the bottom stays centered. Generous gaps mark the cuts.
   -->
   <defs>
-    <clipPath id="dzm-top"><rect x="-24" y="0" width="180" height="38"/></clipPath>
-    <clipPath id="dzm-mid"><rect x="-24" y="49" width="180" height="22"/></clipPath>
-    <clipPath id="dzm-bot"><rect x="-24" y="82" width="180" height="40"/></clipPath>
+    <clipPath id="dz-top"><rect x="-24" y="0" width="180" height="38"/></clipPath>
+    <clipPath id="dz-mid"><rect x="-24" y="49" width="180" height="22"/></clipPath>
+    <clipPath id="dz-bot"><rect x="-24" y="82" width="180" height="40"/></clipPath>
   </defs>
   <g fill="#eef2f8">
-    <circle cx="44" cy="60" r="44" clip-path="url(#dzm-top)"/>
-    <circle cx="78" cy="60" r="44" clip-path="url(#dzm-mid)"/>
-    <circle cx="56" cy="60" r="44" clip-path="url(#dzm-bot)"/>
+    <circle cx="44" cy="60" r="44" clip-path="url(#dz-top)"/>
+    <circle cx="78" cy="60" r="44" clip-path="url(#dz-mid)"/>
+    <circle cx="56" cy="60" r="44" clip-path="url(#dz-bot)"/>
   </g>
 </svg>

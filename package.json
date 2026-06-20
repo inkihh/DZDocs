@@ -1,13 +1,13 @@
 {
-  "name": "dayzmodders",
+  "name": "dzdocs",
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "description": "Community-maintained knowledge base for DayZ modding — dayzmodders.inkihh.de",
-  "homepage": "https://dayzmodders.inkihh.de",
+  "description": "Community-maintained knowledge base for DayZ modding — dzdocs.inkihh.de",
+  "homepage": "https://dzdocs.inkihh.de",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inkihh/wardog-site-experiment.git"
+    "url": "git+https://github.com/inkihh/DZDocs.git"
   },
   "license": "CC-BY-4.0",
   "engines": {

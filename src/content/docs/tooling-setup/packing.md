@@ -48,11 +48,11 @@ file in your addon's source root named exactly `$PBOPREFIX$` (no extension). It 
 line**: the addon's namespace.
 
 ```text
-Wardog\ExampleMod
+Acme\ExampleMod
 ```
 
 That single line is load-bearing. With the prefix above, a texture stored in the PBO at
-`data\barrel_co.paa` is addressed engine-wide as `Wardog\ExampleMod\data\barrel_co.paa`. Every
+`data\barrel_co.paa` is addressed engine-wide as `Acme\ExampleMod\data\barrel_co.paa`. Every
 path string in your configs, RVMATs, and scripts is resolved against that virtual root — so the
 prefix is the contract between "where the file sits in the PBO" and "what name the rest of the
 game uses to find it."

@@ -1,6 +1,6 @@
 ---
 title: Start here
-description: What DayZ Modders is, who it's for, and how to find your way around.
+description: What DZDocs is, who it's for, and how to find your way around.
 sidebar:
   order: 1
   label: Overview

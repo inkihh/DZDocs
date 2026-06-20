@@ -1,10 +1,10 @@
-# DayZ Modders
+# DZDocs
 
 A community-maintained knowledge base for **DayZ modding** — scripting, asset work,
 tooling, and onboarding. Built by modders, for modders, and published as a fast,
 static documentation site.
 
-🔗 **Live site:** https://dayzmodders.inkihh.de
+🔗 **Live site:** https://dzdocs.inkihh.de
 
 > **Status: all sections written — no stub pages left.** The site is scaffolded and
 > themed, with the full discipline taxonomy in place, and every section now carries real
@@ -69,7 +69,7 @@ under `src/content/docs/`, so adding a Markdown file is enough to extend the nav
 
 If you can write Markdown, you can contribute — no repo access needed. See
 **[CONTRIBUTING.md](./CONTRIBUTING.md)** for the quick start, or the
-[Contributing section](https://dayzmodders.inkihh.de/contributing/overview/) on the site for
+[Contributing section](https://dzdocs.inkihh.de/contributing/overview/) on the site for
 the full guidance.
 
 **House rules:** quality over volume · respect the DayZ EULA (no de-binarization /
@@ -87,9 +87,9 @@ push to `main` — see [`.github/workflows/deploy.yml`](./.github/workflows/depl
 | Build output directory | `dist` |
 | Node version | `22` (from `.nvmrc`) |
 | Production branch | `main` |
-| Custom domain | `dayzmodders.inkihh.de` (set via [`public/CNAME`](./public/CNAME)) |
+| Custom domain | `dzdocs.inkihh.de` (set via [`public/CNAME`](./public/CNAME)) |
 
-`astro.config.mjs` sets `site: 'https://dayzmodders.inkihh.de'`, which drives the
+`astro.config.mjs` sets `site: 'https://dzdocs.inkihh.de'`, which drives the
 generated sitemap and canonical URLs — update it if the domain changes. HTTPS uses a
 GitHub-provisioned, auto-renewed Let's Encrypt certificate.
 

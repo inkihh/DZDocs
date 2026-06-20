@@ -1,5 +1,5 @@
 <!--
-Thanks for contributing to DayZ Modders!
+Thanks for contributing to DZDocs!
 Keep PRs focused — one page or one topic is easier to review than a sprawling change.
 -->
 

@@ -43,7 +43,7 @@ where it matters.
   multi-mod load order. [StarDZ]
 - Addon Builder writes `$PBOPREFIX$` from its **`-prefix`** argument when binarizing; if you
   author the file yourself it's authoritative. [BI: Addon Builder]
-- Realistic example line (ours, invented): `Wardog\ExampleMod`.
+- Realistic example line (ours, invented): `Acme\ExampleMod`.
 
 ## Packing with the official tools
 

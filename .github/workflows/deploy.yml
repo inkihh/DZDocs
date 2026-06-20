@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 
 # Builds the Astro Starlight site and publishes it to GitHub Pages
-# (staging: https://inkihh.github.io/wardog-site-experiment/).
+# (staging: https://inkihh.github.io/DZDocs/).
 
 on:
   push:

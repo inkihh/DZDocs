@@ -1,23 +1,23 @@
 # Concept
 
-> Internal product view of **dayzmodders.inkihh.de** — what it is, why it exists, and the
+> Internal product view of **DZDocs** (dzdocs.inkihh.de) — what it is, why it exists, and the
 > design principles behind it. No code-level details (those live in IMPLEMENTATION.md).
 
 ## Summary
 
-**dayzmodders.inkihh.de** is a community-maintained knowledge base for DayZ modding,
+**DZDocs** (dzdocs.inkihh.de) is a community-maintained knowledge base for DayZ modding,
 published as a statically generated documentation site. It exists to take the hard-won,
-scattered, and often gatekept knowledge of the DayZ Modders community and move it into a
+scattered, and often gatekept knowledge of the DayZ modding community and move it into a
 single place that is durable, searchable, and welcoming to newcomers.
 
 The site is built with **Astro Starlight**, deployed to **GitHub Pages** at
-dayzmodders.inkihh.de, with its source open on GitHub (`inkihh/wardog-site-experiment`).
+dzdocs.inkihh.de, with its source open on GitHub (`inkihh/DZDocs`).
 Content is authored in Markdown and contributed through pull requests.
 
 ## The problem
 
-The project grew out of a community discussion started by Wardog, who can no longer carry
-the community's knowledge-sharing burden alone and asked others to step up. The recurring
+The project grew out of a community discussion: a longtime community member could no longer
+carry the community's knowledge-sharing burden alone and asked others to step up. The recurring
 pain points raised by members:
 
 - **Knowledge is gatekept and scattered.** Critical modding know-how (P3D setup, RVMATs,
@@ -82,7 +82,7 @@ Priority topics surfaced by the community:
   pitfall worth covering well.
 
 Worked examples (sample `.blend`/`.p3d`/config files, "blocky" reference assets) are seen
-as especially valuable, and the DayZ Modders GitHub organization can host sample mods and
+as especially valuable, and the community's GitHub organization can host sample mods and
 raw source of community-built mods as companion learning material.
 
 ### Authoring resources — local DayZ knowledge skills
@@ -115,7 +115,7 @@ that list grows as more are used.
 
 ## Contribution model
 
-- **Source is open** on GitHub (`inkihh/wardog-site-experiment`).
+- **Source is open** on GitHub (`inkihh/DZDocs`).
 - **Anyone can contribute** documentation by writing Markdown and opening a pull request.
 - **Core contributors** who help maintain the site get direct repository access; everyone
   else contributes via PRs.

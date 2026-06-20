@@ -11,7 +11,7 @@ and [deploy.md](deploy.md) for the deeper per-area detail.
 - **Search:** Pagefind (bundled with Starlight) — a static index built at `astro build`.
 - **Sitemap:** generated automatically by Starlight from `site` (`sitemap-index.xml`).
 
-### Dependencies (`package.json`, name `dayzmodders`)
+### Dependencies (`package.json`, name `dzdocs`)
 
 | Package | Range | Role |
 | --- | --- | --- |
@@ -45,11 +45,11 @@ README.md  CONTRIBUTING.md   Contributor onboarding
 
 ## `astro.config.mjs` breakdown
 
-- `site: 'https://dayzmodders.inkihh.de'` — canonical URL; drives sitemap, canonical links, OG.
-  No `base` (served at the domain root). `REPO = 'https://github.com/inkihh/wardog-site-experiment'`.
+- `site: 'https://dzdocs.inkihh.de'` — canonical URL; drives sitemap, canonical links, OG.
+  No `base` (served at the domain root). `REPO = 'https://github.com/inkihh/DZDocs'`.
 - `integrations: [starlight({ ... })]`:
-  - `title: 'DayZ Modders'`, `description`, `logo: { src: './src/assets/logo-split.svg', alt }`.
-  - `social: [{ github → REPO }, { discord → https://discord.gg/MTsg9Rhc3q }]`.
+  - `title: 'DZDocs'`, `description`, `logo: { src: './src/assets/logo-split.svg', alt }`.
+  - `social: [{ github → REPO }, { discord → https://discord.gg/EAMvFw9P93 }]`.
   - `editLink.baseUrl: ` `${REPO}/edit/main/` — per-page "Edit" links.
   - `lastUpdated: true` — uses git history for the per-page timestamp.
   - `components` — `ThemeProvider`, `ThemeSelect` (dark-only), `Banner` (draft strip), `Footer`
@@ -73,8 +73,8 @@ content links in one place — chosen over per-component overrides.
 
 - **Foundation (Milestone 1):** Astro+Starlight scaffold, discipline taxonomy, 27 starter pages,
   dark-only brand theme, contributor onboarding, deploy config.
-- **Hosting pivot:** originally planned for Cloudflare Pages + `dayzmodders.net`; moved to
-  **GitHub Pages** + custom domain **`dayzmodders.inkihh.de`** in repo `inkihh/wardog-site-experiment`.
+- **Hosting pivot:** originally planned for Cloudflare Pages; moved to **GitHub Pages** + a
+  custom domain on the `inkihh.de` zone.
 - **Branding & UX:** adopted the **split-circle logo** for header + hero (earlier three-shard
   `logo.svg` removed); added an always-on **draft banner**, a footer **legal/contact + Sources**
   row, and a head script that opens **all external links** in a new tab.
@@ -85,3 +85,12 @@ content links in one place — chosen over per-component overrides.
   nested `engine-subsystems/` group (`overview`, `inventory`, `actions`, `networking`,
   `persistence`), replacing the old flat `engine-subsystems.md` stub and hand-tuning the Scripting
   sidebar group for the nested label.
+- **Rebrand → DZDocs:** the project was renamed from its original branding to **DZDocs**.
+  `astro.config.mjs` (`title`, `logo.alt`), all page copy, `package.json` (name `dzdocs`, homepage),
+  brand-asset `aria-label`s, and the example PBO prefix (→ `Acme\ExampleMod`) were updated; the
+  GitHub repo was renamed to **`inkihh/DZDocs`** (all in-repo URLs follow); and the community Discord
+  link was replaced with the project invite (`discord.gg/EAMvFw9P93`).
+- **Domain → `dzdocs.inkihh.de`:** `public/CNAME` and `astro.config.mjs` `site` updated. Hetzner DNS
+  (`inkihh.de` zone, managed via `api.hetzner.cloud/v1`) got a `dzdocs` `CNAME → inkihh.github.io.`
+  (ttl 300); the GitHub Pages custom domain was switched via `PUT /repos/inkihh/DZDocs/pages` with a
+  fresh Let's Encrypt cert and HTTPS enforced; the previous domain's DNS record was removed.

@@ -78,7 +78,7 @@ same PR.
 Scripting and asset work overlap heavily, so we **link instead of re-explaining**.
 
 - **Root-relative links only:** `/asset-work/p3d-setup/`, never a relative `../path` and never a
-  full `https://dayzmodders.inkihh.de/...` URL for an internal page. Slugs end in a trailing
+  full `https://dzdocs.inkihh.de/...` URL for an internal page. Slugs end in a trailing
   slash.
 - **Link to anchors** when you mean a specific section:
   `/tooling-setup/packing/#signing`.

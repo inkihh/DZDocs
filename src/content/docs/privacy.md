@@ -3,7 +3,7 @@ title: Privacy
 description: What this site collects — and what it doesn't.
 ---
 
-DayZ Modders is a static documentation site, and it is intentionally minimal about data.
+DZDocs is a static documentation site, and it is intentionally minimal about data.
 
 ## What this site collects
 

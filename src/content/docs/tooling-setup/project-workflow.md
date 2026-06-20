@@ -30,8 +30,8 @@ A workable layout for a single-addon mod:
 ```text
 my-mod/                      # source repo (version controlled)
 ├─ src/
-│  └─ wardog_examplemod/     # one addon = one folder
-│     ├─ $PBOPREFIX$         # Wardog\ExampleMod
+│  └─ acme_examplemod/       # one addon = one folder
+│     ├─ $PBOPREFIX$         # Acme\ExampleMod
 │     ├─ config.cpp
 │     ├─ scripts/
 │     │  └─ 4_World/...       # script modules — see Game structure
@@ -75,7 +75,7 @@ secrets.
 - **`*.biprivatekey`** — the private signing key. Committing it hands anyone your signing
   identity. This is a hard rule.
 
-```gitignore
+```ini
 # Build output
 build/
 *.pbo

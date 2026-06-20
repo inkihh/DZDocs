@@ -2,7 +2,7 @@
 
 ## Hosting: GitHub Pages
 
-The site is a static build published to **GitHub Pages** from `inkihh/wardog-site-experiment`.
+The site is a static build published to **GitHub Pages** from `inkihh/DZDocs`.
 
 ### Workflow — `.github/workflows/deploy.yml`
 
@@ -17,12 +17,14 @@ So **every push to `main` rebuilds and redeploys** the live site.
 
 ## Domain & TLS
 
-- **Custom domain:** `public/CNAME` = `dayzmodders.inkihh.de`. Copied to `dist/CNAME` at build and
+- **Custom domain:** `public/CNAME` = `dzdocs.inkihh.de`. Copied to `dist/CNAME` at build and
   consumed by GitHub Pages. The site serves at the **domain root** → `astro.config.mjs` sets no
-  `base`, and `site: 'https://dayzmodders.inkihh.de'`.
-- **DNS:** the `inkihh.de` zone is on Hetzner nameservers; `dayzmodders.inkihh.de` must point at
-  GitHub Pages (a `CNAME` to `inkihh.github.io`). HTTPS uses a GitHub-provisioned, auto-renewing
-  Let's Encrypt certificate.
+  `base`, and `site: 'https://dzdocs.inkihh.de'`. The Pages custom domain can be set either by the
+  deployed `CNAME` file or directly via the API (`PUT /repos/inkihh/DZDocs/pages`, field `cname`).
+- **DNS:** the `inkihh.de` zone is hosted on **Hetzner DNS**, managed via the Hetzner Cloud API
+  (`api.hetzner.cloud/v1/zones`, Bearer auth — the standalone `dns.hetzner.com/api/v1` endpoint is
+  retired). `dzdocs.inkihh.de` is a `CNAME` to `inkihh.github.io.` (ttl 300). HTTPS uses a
+  GitHub-provisioned, auto-renewing Let's Encrypt certificate.
 
 ## `public/_headers` — inert (legacy)
 

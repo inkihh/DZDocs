@@ -273,6 +273,15 @@ mobile-starlight-toc nav {
 	top: calc(var(--sl-nav-height) - 1px + var(--dzm-banner-h));
 }
 
+/* The mobile menu (hamburger) button is fixed to the viewport top and centered
+ * against the nav height; like the rest of the chrome it needs the banner nudge,
+ * or it floats over the banner instead of sitting in the header. */
+starlight-menu-button button {
+	inset-block-start: calc(
+		(var(--sl-nav-height) - var(--sl-menu-button-size)) / 2 + var(--dzm-banner-h)
+	);
+}
+
 /* Desktop "On this page" TOC. Starlight pins it at top:0 (content offset by the
  * nav height); without the banner nudge it tucks up under the header. Push it
  * down by the banner height and trim its height so the bottom still lands at the

@@ -10,3 +10,30 @@
 <div class="dzm-draft-banner" role="status">
 	<strong>Draft preview</strong>&nbsp;— an early work in progress: content is AI-drafted and awaiting community review, and some pages are still stubs.
 </div>
+
+<script is:inline>
+	/*
+	 * The banner is `position: fixed`, and Starlight's header, sidebars, and
+	 * mobile TOC are all nudged down by --dzm-banner-h to clear it. The CSS
+	 * default for that variable is only a guess: when the text wraps to more
+	 * lines than the guess allows (narrow viewports, before/after web fonts
+	 * load) the banner overflows into the header. Measure the real height and
+	 * publish it as --dzm-banner-h so every offset tracks it exactly.
+	 */
+	(function () {
+		var banner = document.querySelector('.dzm-draft-banner');
+		if (!banner) return;
+		var root = document.documentElement;
+		var sync = function () {
+			root.style.setProperty('--dzm-banner-h', banner.offsetHeight + 'px');
+		};
+		sync();
+		if (window.ResizeObserver) {
+			new ResizeObserver(sync).observe(banner);
+		} else {
+			window.addEventListener('resize', sync);
+		}
+		// Re-measure once web fonts settle, in case they change the line count.
+		if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
+	})();
+</script>

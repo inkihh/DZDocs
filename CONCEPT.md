@@ -191,14 +191,18 @@ separately from this project:
 1. **Foundation** ✅ *(done)* — scaffolded and themed the Astro Starlight site, planned the
    full topical category structure, and stood up the GitHub Pages deploy so contributors have
    somewhere to write into.
-2. **Writing** *(highest ongoing priority — now the focus)* — populate the priority categories (asset
-   pipeline / P3D, scripting, onboarding) with genuinely useful, human-authored material.
-   *Delivered so far:* the Getting Started onboarding pages (modding overview, Workbench setup), the
-   full Scripting section (EnScript basics, common gotchas, game structure, and the engine
-   subsystems — inventory, actions, networking, persistence), and the full Asset Work section
-   (pipeline & formats, P3D setup, proxies, selections & naming, memory points, materials/RVMAT,
-   textures, configs — with inline worked examples for a static prop, a 3D optic, and a vehicle).
-   *Still open:* the Tooling & Setup deep-dives.
+2. **Writing** ✅ *(initial content complete — now ongoing maintenance/expansion)* — populate the
+   categories with genuinely useful, human-authored material. **Every section is now written and
+   the site is stub-free.** *Delivered:* the Getting Started onboarding pages (modding overview,
+   Workbench setup), the full Scripting section (EnScript basics, common gotchas, game structure,
+   and the engine subsystems — inventory, actions, networking, persistence), the full Asset Work
+   section (pipeline & formats, P3D setup, proxies, selections & naming, memory points,
+   materials/RVMAT, textures, configs — with inline worked examples for a static prop, a 3D optic,
+   and a vehicle), the full Tooling & Setup section (packing, file patching, publishing, project
+   workflow), and the Contributing guides (writing docs, style guide, PR process). The initial
+   AI-drafted foundation is in place; the baton now passes to the community to verify, correct,
+   deepen, and add worked examples and sample assets through PRs (writing as a continuous activity,
+   never truly "finished").
 3. **Search** — keep the built-in static search (Pagefind) by default; only switch to a stronger
    system (e.g. Algolia) if it's *really needed* once there's enough content and traffic.
 4. **Later / under consideration** — deeper LLM-consumption optimizations (e.g. an AST-aware

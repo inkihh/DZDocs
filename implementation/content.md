@@ -72,14 +72,27 @@ line here; new `engine-subsystems/` pages still autogenerate.
   examples). Centered on Object Builder (DayZ Tools), Blender/A3OB noted as the alternative; no
   de-binarization anywhere. Grounded in the `dayz-items` skill + BI Wiki; research notes
   `asset-*` under `resources/research/`.
-- **tooling-setup/** — `overview`, `packing` (stub), `file-patching` (stub), `publishing` (stub),
-  `project-workflow` (stub).
-- **contributing/** — `overview`, `writing-docs`, `style-guide` (stub), `pr-process`.
+- **tooling-setup/** — fully written (no stubs). `overview`, `packing` (PBOs, `$PBOPREFIX$`,
+  Addon Builder, signing with `.biprivatekey`/`.bikey`/`.bisign` + when client vs server-only
+  mods need it), `file-patching` (`-filePatching`/`allowFilePatching`, patchable vs not, the
+  "works patched, breaks packed" failure modes), `publishing` (the Publisher, `meta.cpp`
+  `publishedid` vs `mod.cpp` presentation, Workshop vs. direct server-mod distribution),
+  `project-workflow` (one-addon-per-folder layout, Git commit-vs-ignore with a sample tree +
+  `.gitignore`, scripting the build). Grounded in the `dayz-project` skill + BI Wiki, cross-
+  checked against the StarDZ DayZ Modding Wiki; research notes `tooling-*` under
+  `resources/research/`. Documents the **general, tool-agnostic official workflow**, not the
+  maintainer's private build system.
+- **contributing/** — fully written (no stubs). `overview`, `writing-docs`, `style-guide`
+  (voice/tone, the canonical terminology table, capitalization/formatting, cross-linking, and
+  the original/vanilla-only image rule — grounded in the site's own pages + CONCEPT, research
+  note `contributing-style-guide.md`), `pr-process`.
 - **Root pages (footer-linked, not in the discipline sidebar):** `contact`, `privacy`, `sources`.
   `sources` credits the external references content is grounded in — open-source skills like
   `dayz-dev-plugin` (GPL-3.0), the BI Community Wiki, and DayZ Tools — and is reached from the
   site footer (see `Footer.astro` in [theming.md](theming.md)).
 
-Overview pages, the full Getting-Started section, the full **Scripting** section, the full
-**Asset Work** section, and the Contributing pages carry real content; the remaining discipline
-deep-dives (the **Tooling & Setup** how-tos) are mostly clearly-badged stubs.
+**Every page carries real content — the site is stub-free.** All five disciplines (Getting
+Started, Scripting, Asset Work, Tooling & Setup, Contributing) are fully written; no page still
+carries the `stub` badge or a `:::caution[Planned page]` aside. The Milestone-2 content roadmap
+is complete; further work is deepening, correcting, and expanding existing pages (and adding
+worked examples / sample assets) rather than filling scaffolds.

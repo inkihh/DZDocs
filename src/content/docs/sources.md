@@ -21,6 +21,10 @@ that work is grounded in, and it grows as more are used.
   split, memory management, and engine systems, with a strict no-hallucination,
   verify-against-the-source policy. We use it to fact-check the scripting and
   mod-structure material on this site.
+- **[StarDZ DayZ Modding Wiki](https://stardz-team.github.io/DayZ-Modding-Wiki/)** — an
+  open-source community wiki ([source on GitHub](https://github.com/StarDZ-Team/DayZ-Modding-WIKI))
+  covering file formats, PBO packing, and signing. We use it to cross-check tooling
+  details (PBOs, `$PBOPREFIX$`, keys/signing) where the official wiki is hard to reach.
 
 ## Primary references
 

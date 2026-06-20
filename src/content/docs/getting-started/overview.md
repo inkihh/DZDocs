@@ -37,8 +37,10 @@ links rather than treating each page as an island.
 
 ## A note on what's here (and what isn't)
 
-This is **early days.** Many pages are still stubs (flagged in the sidebar) — they
-mark the intended structure and are waiting to be written. If you know a topic well,
+The core sections are **written** — Getting Started, Scripting, Asset Work, Tooling &
+Setup, and Contributing all carry real content. That doesn't mean they're finished:
+docs are living, and there's always more depth to add, examples to improve, and
+corrections to make. If you know a topic well,
 [that's where you come in](/contributing/overview/).
 
 The site deliberately **does not** cover EULA-violating workflows (e.g.

@@ -6,15 +6,16 @@ static documentation site.
 
 🔗 **Live site:** https://dayzmodders.inkihh.de
 
-> **Status: foundation in place, content well underway.** The site is scaffolded and
-> themed, with the full discipline taxonomy in place. The **Getting Started** guides,
-> every section's overview, the full **Scripting** section (EnScript basics, common
-> gotchas, game structure, and the engine-subsystems pages — inventory, actions,
-> networking, persistence), and the full **Asset Work** section (pipeline & formats, P3D
-> setup, proxies, selections & naming, memory points, materials/RVMAT, textures, and
-> configs) are written. The remaining discipline deep-dives — the **Tooling & Setup**
-> how-tos — are mostly still stubs (flagged in the sidebar) waiting to be written, and
-> that's where contributors come in.
+> **Status: all sections written — no stub pages left.** The site is scaffolded and
+> themed, with the full discipline taxonomy in place, and every section now carries real
+> content: the **Getting Started** guides, the full **Scripting** section (EnScript basics,
+> common gotchas, game structure, and the engine-subsystems pages — inventory, actions,
+> networking, persistence), the full **Asset Work** section (pipeline & formats, P3D setup,
+> proxies, selections & naming, memory points, materials/RVMAT, textures, and configs), the
+> full **Tooling & Setup** section (packing, file patching, publishing, and project
+> workflow), and the **Contributing** guides (writing docs, style guide, PR process).
+> Contributors now focus on deepening, correcting, and expanding that material — and adding
+> worked examples and sample assets — rather than filling stubs.
 
 ## What this is
 

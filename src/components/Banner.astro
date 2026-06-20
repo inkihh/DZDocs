@@ -1,0 +1,12 @@
+---
+/*
+ * Always-on draft notice. Overrides Starlight's Banner component (which only
+ * renders when a page sets `banner` frontmatter) so a site-wide draft strip
+ * shows on every page. It is pinned as a fixed full-width bar at the very top of
+ * the viewport — see `.dzm-draft-banner` and the chrome offsets in theme.css.
+ */
+---
+
+<div class="dzm-draft-banner" role="status">
+	<strong>Draft preview</strong>&nbsp;— a non-functional work in progress; content may be incomplete or inaccurate.
+</div>

@@ -1,0 +1,44 @@
+---
+/*
+ * Extends Starlight's default footer with a site-wide row of legal / contact links.
+ */
+import Default from '@astrojs/starlight/components/Footer.astro';
+---
+
+<Default />
+
+<div class="dzm-footer-legal">
+	<nav class="dzm-footer-links" aria-label="Legal and contact">
+		<a href="/privacy/">Privacy</a>
+		<a href="/imprint/">Imprint</a>
+		<a href="/contact/">Contact</a>
+	</nav>
+	<p>Community project · documentation under CC&nbsp;BY&nbsp;4.0 · not affiliated with Bohemia Interactive.</p>
+</div>
+
+<style>
+	.dzm-footer-legal {
+		margin-top: 1.5rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--sl-color-hairline-shade);
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+	}
+	.dzm-footer-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 1.25rem;
+		margin-bottom: 0.5rem;
+	}
+	.dzm-footer-links a {
+		color: var(--sl-color-gray-2);
+		text-decoration: none;
+	}
+	.dzm-footer-links a:hover {
+		color: var(--sl-color-white);
+		text-decoration: underline;
+	}
+	.dzm-footer-legal p {
+		margin: 0;
+	}
+</style>

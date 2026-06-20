@@ -216,3 +216,59 @@ hr.hazard {
 	opacity: 0.8;
 	margin-block: 2.5rem;
 }
+
+/* 5. Draft banner ---------------------------------------------------------- */
+/* A slim full-width strip pinned to the very top of the viewport, above the
+ * header. Starlight's header, sidebar, and mobile TOC are `position: fixed`, so
+ * each is nudged down by the banner height and the content frame gets matching
+ * top padding. These rules are unlayered, so they win over Starlight's defaults. */
+:root {
+	--dzm-banner-h: 1.9rem;
+}
+
+@media (max-width: 30rem) {
+	:root {
+		--dzm-banner-h: 3rem;
+	}
+}
+
+.dzm-draft-banner {
+	position: fixed;
+	inset-block-start: 0;
+	inset-inline: 0;
+	z-index: 20;
+	min-height: var(--dzm-banner-h);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.25rem 1rem;
+	background: var(--dzm-amber);
+	color: var(--sl-color-black);
+	font-size: var(--sl-text-xs);
+	line-height: 1.2;
+	text-align: center;
+	text-wrap: balance;
+}
+
+.dzm-draft-banner strong {
+	font-weight: 700;
+}
+
+/* Make room for the banner by nudging Starlight's fixed chrome down. */
+.header {
+	inset-block-start: var(--dzm-banner-h);
+}
+
+.sidebar-pane {
+	inset-block-start: calc(var(--sl-nav-height) + var(--dzm-banner-h));
+}
+
+.main-frame {
+	padding-block-start: calc(
+		var(--sl-nav-height) + var(--sl-mobile-toc-height) + var(--dzm-banner-h)
+	);
+}
+
+mobile-starlight-toc nav {
+	top: calc(var(--sl-nav-height) - 1px + var(--dzm-banner-h));
+}

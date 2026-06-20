@@ -41,13 +41,12 @@ export default defineConfig({
 			description:
 				'A community-maintained knowledge base for DayZ modding — scripting, asset work, tooling, and onboarding.',
 			logo: {
-				src: './src/assets/logo.svg',
+				src: './src/assets/logo-split.svg',
 				alt: 'DayZ Modders',
 			},
 			social: [
 				{ icon: 'github', label: 'GitHub', href: REPO },
-				// TODO: add the community Discord invite once a stable invite URL exists.
-				// { icon: 'discord', label: 'Discord', href: 'https://discord.gg/...' },
+				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/EAMvFw9P93' },
 			],
 			editLink: {
 				baseUrl: `${REPO}/edit/main/`,
@@ -57,6 +56,10 @@ export default defineConfig({
 			components: {
 				ThemeProvider: './src/components/ThemeProvider.astro',
 				ThemeSelect: './src/components/ThemeSelect.astro',
+				// Always-on draft notice pinned to the top of every page.
+				Banner: './src/components/Banner.astro',
+				// Default footer + site-wide legal / contact links.
+				Footer: './src/components/Footer.astro',
 			},
 			// Open all links to GitHub in a new tab.
 			head: [{ tag: 'script', content: OPEN_GITHUB_IN_NEW_TAB }],

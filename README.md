@@ -6,9 +6,11 @@ static documentation site.
 
 🔗 **Live site:** https://dayzmodders.inkihh.de
 
-> **Status: early foundation.** The site is scaffolded and themed, with the full
-> discipline taxonomy in place. Most pages are stubs (flagged in the sidebar) waiting
-> to be written — that's where contributors come in.
+> **Status: early foundation, content underway.** The site is scaffolded and themed,
+> with the full discipline taxonomy in place. The **Getting Started** guides and each
+> section's overview are written; the deeper discipline pages (scripting, asset work,
+> tooling) are mostly still stubs (flagged in the sidebar) waiting to be written —
+> that's where contributors come in.
 
 ## What this is
 

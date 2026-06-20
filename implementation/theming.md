@@ -6,7 +6,8 @@ amber secondary "hazard" contrast.
 
 ## `src/styles/theme.css`
 
-Loaded last in `customCss` (after the two `@fontsource` imports). Six sections:
+Loaded last in `customCss` (after the two `@fontsource` imports). The file header indexes six
+sections (below); a seventh **Draft banner** block was appended later (see "Banner & footer"):
 
 1. **Fonts & shared tokens** — `--sl-font` = Inter Variable stack (body);
    `--dzm-font-display` = Oswald Variable stack (display); `--dzm-amber: #f0a93b`;
@@ -42,6 +43,24 @@ Registered via Starlight `components`:
 
 Result: `data-theme` is always `dark`; the light palette and switcher are gone entirely.
 
+## Banner & footer overrides (`src/components/`)
+
+Two more registered component overrides, beyond the dark-only pair:
+
+- **`Banner.astro`** — replaces Starlight's frontmatter-gated banner with an always-on,
+  full-width **"Draft preview"** strip (`.dzm-draft-banner`), pinned `position: fixed` at the
+  very top of the viewport (height `--dzm-banner-h` ≈ `1.9rem`, `3rem` on narrow screens,
+  `z-index: 20`, amber background). Because Starlight's own header, sidebars, and mobile TOC are
+  also fixed, the theme's Draft-banner block nudges each down by `--dzm-banner-h`: `.header`,
+  `.sidebar-pane` (left nav), `.main-frame` top padding, `mobile-starlight-toc nav`, **and the
+  desktop `.right-sidebar`** ("On this page" TOC — also height-trimmed to `100vh − --dzm-banner-h`
+  so it still bottoms out at the viewport edge). These rules are **unlayered**, so they win over
+  Starlight's layered defaults. *(The right-sidebar offset was the last one added — without it the
+  TOC tucked up under the top bar.)*
+- **`Footer.astro`** — wraps Starlight's default footer and appends a legal/contact row
+  (`.dzm-footer-legal`): a link nav of **Sources · Privacy · Contact** plus a "community project ·
+  CC BY 4.0 · not affiliated with Bohemia Interactive" line.
+
 ## Typography
 
 Both faces are self-hosted via `@fontsource-variable/*` (imported through `customCss`) — no
@@ -50,16 +69,24 @@ external runtime font dependency. **Inter Variable** = body; **Oswald Variable**
 
 ## Brand assets
 
-All original geometry; the mark is the community's own logo, faithfully vectorized (not copied
-from other mods). Palette: navy `#10182a`, white `#f4f7fc`, blue `#2f7fe6`, amber `#f0a93b`.
+All original geometry (not copied from other mods). Palette: navy `#10182a`, white `#f4f7fc`,
+blue `#2f7fe6`, amber `#f0a93b`.
 
-The **mark** = three white triangular shards sliced by parallel 45° gaps (a stylized "Z" for
-DayZ), as three polygons in a `0 0 41 22` viewBox:
-`0,3 11,3 11,14` · `15,1 15,15 30,15` · `22,2 41,2 41,22`.
+The **active mark** is the **split-circle** (`logo-split.svg`): an off-white (`#eef2f8`) circle
+(r 44) sliced by two horizontal cuts into three bands in a `0 0 128 120` viewBox — top band nudged
+left (`cx 44`), middle band pushed right past the circle's edge (`cx 78`), bottom centered
+(`cx 56`), with generous gaps marking the cuts. It serves as **both** the header logo
+(`astro.config.mjs` `logo.src`) and the splash hero image (`index.mdx` `hero.image`).
+
+An earlier **three-shard "Z" mark** survives only inlined in `favicon.svg`: three white triangular
+shards sliced by parallel 45° gaps, as three polygons in a `0 0 41 22` viewBox
+(`0,3 11,3 11,14` · `15,1 15,15 30,15` · `22,2 41,2 41,22`). The standalone `logo.svg` of that mark
+was deleted once the split-circle became the brand. `hero.svg` (earlier hero art) is retained but
+currently unreferenced, since the hero switched to the split logo.
 
 | File | What |
 | --- | --- |
-| `src/assets/logo.svg` | Header mark — white shards on transparent |
-| `public/favicon.svg` | Navy `#10182a` rounded chip + white mark |
-| `src/assets/app-icon.svg` | Navy gradient chip + "MODDERS" (Oswald) + mark — scalable version of the supplied raster icon |
-| `src/assets/hero.svg` | Large mark + blue instrument contours / corner ticks, for the splash hero |
+| `src/assets/logo-split.svg` | **Active** mark — split-circle, off-white on transparent; header + hero |
+| `public/favicon.svg` | Navy `#10182a` rounded chip + inlined three-shard mark |
+| `src/assets/app-icon.svg` | Navy gradient chip + "MODDERS" (Oswald) + mark — scalable app icon |
+| `src/assets/hero.svg` | Earlier hero art (mark + instrument contours) — retained, currently unreferenced |

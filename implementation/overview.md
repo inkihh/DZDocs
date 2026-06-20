@@ -35,8 +35,8 @@ src/
   content.config.ts         docs collection: docsLoader() + docsSchema()
   content/docs/             All pages (see content.md)
   styles/theme.css          Dark-only theme (see theming.md)
-  assets/                   logo.svg, hero.svg, app-icon.svg (build-processed)
-  components/               ThemeProvider.astro, ThemeSelect.astro (dark-only overrides)
+  assets/                   logo-split.svg (active), hero.svg, app-icon.svg (build-processed)
+  components/               ThemeProvider, ThemeSelect (dark-only), Banner, Footer (see theming.md)
 public/                     favicon.svg, CNAME, _headers (served as-is)
 .github/workflows/deploy.yml  GitHub Pages CI (see deploy.md)
 .github/PULL_REQUEST_TEMPLATE.md
@@ -48,22 +48,24 @@ README.md  CONTRIBUTING.md   Contributor onboarding
 - `site: 'https://dayzmodders.inkihh.de'` — canonical URL; drives sitemap, canonical links, OG.
   No `base` (served at the domain root). `REPO = 'https://github.com/inkihh/wardog-site-experiment'`.
 - `integrations: [starlight({ ... })]`:
-  - `title: 'DayZ Modders'`, `description`, `logo: { src: './src/assets/logo.svg', alt }`.
-  - `social: [{ icon: 'github', href: REPO }]` (Discord entry stubbed/commented pending an invite).
+  - `title: 'DayZ Modders'`, `description`, `logo: { src: './src/assets/logo-split.svg', alt }`.
+  - `social: [{ github → REPO }, { discord → https://discord.gg/MTsg9Rhc3q }]`.
   - `editLink.baseUrl: ` `${REPO}/edit/main/` — per-page "Edit" links.
   - `lastUpdated: true` — uses git history for the per-page timestamp.
-  - `components` — dark-only overrides (`ThemeProvider`, `ThemeSelect`); see [theming.md](theming.md).
-  - `head` — a single inline `<script>` (`OPEN_GITHUB_IN_NEW_TAB`); see below.
+  - `components` — `ThemeProvider`, `ThemeSelect` (dark-only), `Banner` (draft strip), `Footer`
+    (legal/contact + Sources row); see [theming.md](theming.md).
+  - `head` — a single inline `<script>` (`OPEN_EXTERNAL_IN_NEW_TAB`); see below.
   - `customCss` — `@fontsource-variable/inter`, `@fontsource-variable/oswald`, then `./src/styles/theme.css`.
   - `sidebar` — five discipline groups, each `items: [{ autogenerate: { directory } }]`; see [content.md](content.md).
 
-## Behavior: open GitHub links in a new tab
+## Behavior: open external links in a new tab
 
-`OPEN_GITHUB_IN_NEW_TAB` is an inline head script injected on every page. On `DOMContentLoaded`
-(and on `astro:page-load`) it walks every `<a href>`, and for any whose host is `github.com` or
-`*.github.com` it sets `target="_blank"` and adds `rel="noopener noreferrer"`. This covers the
-header social icon, the hero button, per-page Edit links, and inline content links in one place —
-chosen over four separate component overrides. Non-GitHub links are untouched.
+`OPEN_EXTERNAL_IN_NEW_TAB` is an inline head script injected on every page. On `DOMContentLoaded`
+(and on `astro:page-load`) it walks every `<a href>`, resolves each against the current location,
+and for any `http(s)` link whose host **differs from the current host** sets `target="_blank"` and
+adds `rel="noopener noreferrer"`. Same-origin links and non-`http(s)` schemes are left untouched.
+This covers the header social icons, hero buttons, per-page Edit links, footer links, and inline
+content links in one place — chosen over per-component overrides.
 
 ## History
 
@@ -71,3 +73,9 @@ chosen over four separate component overrides. Non-GitHub links are untouched.
   dark-only brand theme, contributor onboarding, deploy config.
 - **Hosting pivot:** originally planned for Cloudflare Pages + `dayzmodders.net`; moved to
   **GitHub Pages** + custom domain **`dayzmodders.inkihh.de`** in repo `inkihh/wardog-site-experiment`.
+- **Branding & UX:** adopted the **split-circle logo** for header + hero (earlier three-shard
+  `logo.svg` removed); added an always-on **draft banner**, a footer **legal/contact + Sources**
+  row, and a head script that opens **all external links** in a new tab.
+- **Writing (Milestone 2, in progress):** wrote the Getting-Started onboarding pages
+  (`modding-overview`, `workbench-setup`); added a `sources` page crediting external references;
+  research notes captured under `resources/research/` (indexed from `RESEARCH.md`).

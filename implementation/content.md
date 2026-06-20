@@ -35,13 +35,17 @@ expanded (`collapsed: false`); the rest start collapsed to keep the panel tidy.
   links (`/asset-work/p3d-setup/`).
 - **Hazard divider:** `<hr class="hazard" />` renders the amber chevron rule (styled in
   `theme.css`); used on the landing page.
+- **Research notes:** page content is grounded in research captured under `resources/research/`
+  (one file per topic, e.g. `onboarding-*.md`) and indexed from `RESEARCH.md` — internal working
+  notes, not published pages. Primary grounding is the maintainer's local DayZ skills (see
+  CONCEPT.md "Authoring resources") and the BI Community Wiki.
 
-## Page inventory (27)
+## Page inventory (30)
 
 - **Landing:** `index.mdx` — `template: splash`, custom hero (`hero.svg`), discipline `LinkCard`
   grid, and "why this exists" `Card` grid.
-- **getting-started/** — `overview` (Start here), `modding-overview` (stub), `workbench-setup`
-  (stub), `how-to-contribute`.
+- **getting-started/** — `overview` (Start here), `modding-overview`, `workbench-setup`,
+  `how-to-contribute` — all written (no stubs).
 - **scripting/** — `overview`, `enscript-basics` (stub), `common-gotchas` (stub),
   `engine-subsystems` (stub), `game-structure` (stub).
 - **asset-work/** — `overview`, `p3d-setup` (stub, flagged top priority), `proxies` (stub),
@@ -50,6 +54,10 @@ expanded (`collapsed: false`); the rest start collapsed to keep the panel tidy.
 - **tooling-setup/** — `overview`, `packing` (stub), `file-patching` (stub), `publishing` (stub),
   `project-workflow` (stub).
 - **contributing/** — `overview`, `writing-docs`, `style-guide` (stub), `pr-process`.
+- **Root pages (footer-linked, not in the discipline sidebar):** `contact`, `privacy`, `sources`.
+  `sources` credits the external references content is grounded in — open-source skills like
+  `dayz-dev-plugin` (GPL-3.0), the BI Community Wiki, and DayZ Tools — and is reached from the
+  site footer (see `Footer.astro` in [theming.md](theming.md)).
 
-Overview pages and the Getting-Started/Contributing pages carry real orientation content; the
-rest are clearly-badged stubs.
+Overview pages, the full Getting-Started section, and the Contributing pages carry real content;
+the discipline deep-dives (scripting, asset work, tooling) are mostly clearly-badged stubs.

@@ -272,3 +272,12 @@ hr.hazard {
 mobile-starlight-toc nav {
 	top: calc(var(--sl-nav-height) - 1px + var(--dzm-banner-h));
 }
+
+/* Desktop "On this page" TOC. Starlight pins it at top:0 (content offset by the
+ * nav height); without the banner nudge it tucks up under the header. Push it
+ * down by the banner height and trim its height so the bottom still lands at the
+ * viewport edge. */
+.right-sidebar {
+	inset-block-start: var(--dzm-banner-h);
+	height: calc(100vh - var(--dzm-banner-h));
+}

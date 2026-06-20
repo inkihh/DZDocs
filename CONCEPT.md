@@ -85,6 +85,34 @@ Worked examples (sample `.blend`/`.p3d`/config files, "blocky" reference assets)
 as especially valuable, and the DayZ Modders GitHub organization can host sample mods and
 raw source of community-built mods as companion learning material.
 
+### Authoring resources — local DayZ knowledge skills
+
+The maintainer keeps a set of **local DayZ knowledge skills** (installed under the
+Windows Claude home at `~/.claude/skills/`, i.e. `/mnt/c/Users/<user>/.claude/skills/`
+from WSL — *not* the WSL `~/.claude/skills/`, which only holds unrelated skills). These
+are authoritative, version-current (DayZ 1.28+) references built from hands-on modding and
+the Bohemia Community Wiki, and they are the **preferred grounding source** when writing or
+reviewing pages — more reliable than open web search:
+
+- **`dayz-dev-plugin`** — Enforce Script, class hierarchy, client/server split, memory
+  management, mod structure, and engine systems (inventory, actions, networking, weapons,
+  vehicles). Vanilla, Community Framework, and Expansion aware.
+- **`dayz-items`** — the asset/item import pipeline: P3D (MLOD/ODOL), RVMAT, PAA, model.cfg,
+  config.cpp, plus file-format references and MLOD rules.
+- **`dayz-project`** — project structure and build process: the P: drive, symlinks, PBO
+  packing/signing, client/server/both build types, profiles and RPT logs.
+- **`dayz-ui`** / **`dayz-loadingscreen`** — client-side UI/HUD widgets and the loading
+  screen. **`cftools-api`** — the CFTools Cloud server-admin API.
+
+Treat these the same way as any other source: **learn the technique, ground the facts, write
+our own prose** (per RESEARCH.md) — never copy class names, structure, or assets verbatim,
+and let community PRs verify and correct. Capture what's used in `resources/research/`.
+
+Some of these are themselves open source (e.g. `dayz-dev-plugin`, GPL-3.0, by DayZGhost).
+External references the site grounds content in — open-source skills and primary sources
+like the Bohemia Community Wiki — are credited publicly on the site's **Sources** page, and
+that list grows as more are used.
+
 ## Contribution model
 
 - **Source is open** on GitHub (`inkihh/wardog-site-experiment`).
@@ -130,8 +158,13 @@ raw source of community-built mods as companion learning material.
   provisioned, auto-renewing TLS certificate on the custom domain. Keeping hosting, source, and
   CI in one place favors maintainability; an earlier Cloudflare Pages plan was dropped in favor
   of it.
-- **Search (Algolia)** — planned once enough documentation is published, to give the strong
-  search that Discord lacks.
+- **Search** — the site ships with Starlight's built-in static search (Pagefind): self-contained,
+  zero-cost, privacy-friendly, and with no external service to depend on. This is the default and
+  stays in place. We only switch to a different search system if it's **really needed** — i.e. the
+  built-in search demonstrably falls short (e.g. relevance, typo-tolerance, or the no-results
+  analytics it can't provide) once there's enough content and traffic to justify it. A stronger
+  hosted option such as Algolia is the likely candidate if that day comes, but no switch is made
+  for its own sake.
 
 ## Behavior & rules
 
@@ -160,7 +193,9 @@ separately from this project:
    somewhere to write into.
 2. **Writing** *(highest ongoing priority — now the focus)* — populate the priority categories (asset
    pipeline / P3D, scripting, onboarding) with genuinely useful, human-authored material.
-3. **Search** — integrate Algolia once enough documentation is published.
+   *First slice delivered:* the Getting Started onboarding pages (modding overview, Workbench setup).
+3. **Search** — keep the built-in static search (Pagefind) by default; only switch to a stronger
+   system (e.g. Algolia) if it's *really needed* once there's enough content and traffic.
 4. **Later / under consideration** — deeper LLM-consumption optimizations (e.g. an AST-aware
    tree-sitter approach for scripts), curated reference pages for select subsystems and native
    functions, and possibly translations (maintaining parity across pages is the open concern;

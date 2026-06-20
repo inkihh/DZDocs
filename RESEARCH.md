@@ -6,3 +6,8 @@
 - Never reference assets (p3d, rvmat, textures) from other mods — create our own or use vanilla assets. If neither is available, stop and inform me.
 - Document findings in `resources/research/<topic>.md` as reference material, not as code to transplant.
 - Link to those outcomes in this file.
+
+## Outcomes
+
+- [onboarding-modding-overview.md](resources/research/onboarding-modding-overview.md) — bird's-eye map of DayZ modding (scripting vs. asset work, mod-on-disk shape, toolchain, learning curve). Grounds `getting-started/modding-overview.md`.
+- [onboarding-workbench-setup.md](resources/research/onboarding-workbench-setup.md) — DayZ Tools / Workbench install, the `P:` work drive, game-data extraction, project layout, sanity checks, common pitfalls. Grounds `getting-started/workbench-setup.md`.

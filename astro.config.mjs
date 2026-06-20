@@ -47,7 +47,7 @@ export default defineConfig({
 			},
 			social: [
 				{ icon: 'github', label: 'GitHub', href: REPO },
-				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/EAMvFw9P93' },
+				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/MTsg9Rhc3q' },
 			],
 			editLink: {
 				baseUrl: `${REPO}/edit/main/`,

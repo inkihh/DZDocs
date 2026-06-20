@@ -10,7 +10,8 @@ DayZ Modders is maintained by **inkihh**.
 The community lives on Discord — it's the best place to ask questions, share work,
 or help build out the docs:
 
-- 💬 **[Join the DayZ Modders Discord](https://discord.gg/EAMvFw9P93)**
+- 💬 **[Join the DayZ Modders Discord](https://discord.gg/MTsg9Rhc3q)**
+- 💬 **[Join my Discord](https://discord.gg/EAMvFw9P93)**
 
 For corrections or additions to the site itself, open a pull request or issue on the
 [GitHub repository](https://github.com/inkihh/wardog-site-experiment) — see the

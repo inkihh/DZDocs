@@ -57,7 +57,7 @@ npm run preview  # serve the production build locally
 | `src/styles/theme.css` | Site theme (palette, typography, hero, cards) |
 | `src/assets/` | Brand artwork — `logo` (mark), `hero`, `app-icon` |
 | `src/components/` | Starlight component overrides (dark-only: forced theme, no switcher) |
-| `public/` | Static files served as-is (`favicon.svg`, `_headers`) |
+| `public/` | Static files served as-is (`favicon.svg`, `CNAME`) |
 | `CONTRIBUTING.md` | Contributor quick start |
 
 The sidebar is organized **by discipline** and **autogenerates** from each directory

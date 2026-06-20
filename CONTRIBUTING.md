@@ -46,7 +46,7 @@ Requires Node `>=20.3.0` (see `.nvmrc`).
 | `astro.config.mjs` | Site config and the sidebar taxonomy |
 | `src/styles/theme.css` | The site theme |
 | `src/assets/` | Logo, hero, and other build-processed images |
-| `public/` | Static files served as-is (favicon, `_headers`) |
+| `public/` | Static files served as-is (`favicon.svg`, `CNAME`) |
 
 ## Adding a page
 

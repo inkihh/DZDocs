@@ -26,12 +26,14 @@ So **every push to `main` rebuilds and redeploys** the live site.
   retired). `dzdocs.inkihh.de` is a `CNAME` to `inkihh.github.io.` (ttl 300). HTTPS uses a
   GitHub-provisioned, auto-renewing Let's Encrypt certificate.
 
-## `public/_headers` — inert (legacy)
+## Response headers
 
-`public/_headers` (immutable-asset caching + baseline security headers) is a **Cloudflare/Netlify**
-feature. GitHub Pages **ignores** it — it is served as a static file at `/_headers` and has no
-effect. Left over from the dropped Cloudflare Pages plan; a candidate for removal or replacement
-with a Pages-compatible approach.
+GitHub Pages does not support custom response headers (no `_headers` / `netlify.toml` / nginx
+equivalent), so the site sets none. A legacy Cloudflare-format `public/_headers` (baseline
+security headers + immutable-asset caching) used to live in the repo but was inert under Pages —
+served as a plain file at `/_headers` — and has been **removed**. If custom headers are ever
+required (HSTS, CSP, long-lived asset caching), the site would need a proxy/CDN in front of Pages
+(e.g. Cloudflare) or a different host.
 
 ## Build output
 

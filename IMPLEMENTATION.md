@@ -12,5 +12,5 @@ This file is an index. The actual implementation reference lives in per-topic fi
   typography, hero/cards, the forced-dark component overrides, and the brand asset set
   (logo/favicon/app-icon/hero) with the mark geometry.
 - **[implementation/deploy.md](implementation/deploy.md)** — Deployment: the GitHub Pages
-  workflow, custom domain/CNAME and TLS, the inert `_headers` note, build output, and the
+  workflow, custom domain/CNAME and TLS, the no-custom-headers note, build output, and the
   contributor-onboarding files.

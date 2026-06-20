@@ -37,7 +37,7 @@ src/
   styles/theme.css          Dark-only theme (see theming.md)
   assets/                   logo-split.svg (active), hero.svg, app-icon.svg (build-processed)
   components/               ThemeProvider, ThemeSelect (dark-only), Banner, Footer (see theming.md)
-public/                     favicon.svg, CNAME, _headers (served as-is)
+public/                     favicon.svg, CNAME (served as-is)
 .github/workflows/deploy.yml  GitHub Pages CI (see deploy.md)
 .github/PULL_REQUEST_TEMPLATE.md
 README.md  CONTRIBUTING.md   Contributor onboarding

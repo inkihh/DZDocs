@@ -61,6 +61,8 @@ export default defineConfig({
 				Banner: './src/components/Banner.astro',
 				// Default footer + site-wide legal / contact links.
 				Footer: './src/components/Footer.astro',
+				// Default "On this page" panel + a per-page GitHub contributors list.
+				PageSidebar: './src/components/PageSidebar.astro',
 			},
 			// Open all external links in a new tab.
 			head: [{ tag: 'script', content: OPEN_EXTERNAL_IN_NEW_TAB }],

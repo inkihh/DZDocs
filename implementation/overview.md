@@ -23,7 +23,8 @@ and [deploy.md](deploy.md) for the deeper per-area detail.
 
 ### Scripts
 
-`dev`/`start` → `astro dev` (localhost:4321) · `build` → `astro build` (→ `dist/`) ·
+`dev`/`start` → `astro dev` (localhost:4321) · `build` → `node scripts/contributors.mjs && astro build`
+(→ `dist/`) · `contributors` → `node scripts/contributors.mjs` (regenerate contributor data alone) ·
 `preview` → `astro preview` · `astro` → CLI passthrough.
 
 ## Repo layout
@@ -36,7 +37,9 @@ src/
   content/docs/             All pages (see content.md)
   styles/theme.css          Dark-only theme (see theming.md)
   assets/                   logo-split.svg (active), hero.svg, app-icon.svg (build-processed)
-  components/               ThemeProvider, ThemeSelect (dark-only), Banner, Footer (see theming.md)
+  components/               ThemeProvider, ThemeSelect (dark-only), Banner, Footer, PageSidebar (see theming.md)
+  data/contributors.json    Per-page contributors — generated at build, git-ignored
+scripts/contributors.mjs    Build-time per-page contributor generator (see "Per-page contributors")
 public/                     favicon.svg, CNAME (served as-is)
 .github/workflows/deploy.yml  GitHub Pages CI (see deploy.md)
 .github/PULL_REQUEST_TEMPLATE.md
@@ -53,7 +56,8 @@ README.md  CONTRIBUTING.md   Contributor onboarding
   - `editLink.baseUrl: ` `${REPO}/edit/main/` — per-page "Edit" links.
   - `lastUpdated: true` — uses git history for the per-page timestamp.
   - `components` — `ThemeProvider`, `ThemeSelect` (dark-only), `Banner` (draft strip), `Footer`
-    (legal/contact + Sources row); see [theming.md](theming.md).
+    (legal/contact + Sources row), `PageSidebar` (TOC + per-page contributors); see
+    [theming.md](theming.md) and "Behavior: per-page contributors" below.
   - `head` — a single inline `<script>` (`OPEN_EXTERNAL_IN_NEW_TAB`); see below.
   - `customCss` — `@fontsource-variable/inter`, `@fontsource-variable/oswald`, then `./src/styles/theme.css`.
   - `sidebar` — five discipline groups. Four autogenerate (`items: [{ autogenerate: { directory } }]`);
@@ -68,6 +72,31 @@ and for any `http(s)` link whose host **differs from the current host** sets `ta
 adds `rel="noopener noreferrer"`. Same-origin links and non-`http(s)` schemes are left untouched.
 This covers the header social icons, hero buttons, per-page Edit links, footer links, and inline
 content links in one place — chosen over per-component overrides.
+
+## Behavior: per-page contributors
+
+Each page's right-hand "On this page" panel lists the GitHub contributors to that page
+(avatar · `@handle` · commit count, ordered by count). Two parts:
+
+- **`scripts/contributors.mjs`** (build-time; the `build` npm script runs it before `astro build`).
+  Walks `src/content/docs/` and, for each `.md`/`.mdx` page, queries the GitHub REST API
+  `GET /repos/{owner}/{repo}/commits?path=<file>` (paginated). It tallies the resolved top-level
+  `author.login` per commit — skipping **merge commits** (`parents.length > 1`), **bot** accounts,
+  and commits whose author email isn't linked to a GitHub account — so a PR is credited to its
+  **author**, not whoever merged it (squash/rebase/merge all preserve the author). Output:
+  `src/data/contributors.json`, keyed by repo-root-relative path (`src/content/docs/...`), each
+  value `[{ login, count, avatarUrl, profileUrl }]` sorted by count desc. Owner/repo come from
+  `GITHUB_REPOSITORY` (else `package.json` `repository.url`); the token from `GITHUB_TOKEN`.
+  **No git history is needed**, so CI keeps its default shallow checkout. With no token outside CI
+  it skips the network and writes/keeps an empty seed, so local builds never fail (and `astro dev`,
+  which doesn't run the generator, simply shows no contributors until a build has produced the file).
+- **`src/components/PageSidebar.astro`** — Starlight override. Renders the default TOC panel, then —
+  keyed by `Astro.locals.starlightRoute.entry.filePath` (the same path the generator keys on) —
+  appends a **Contributors** block. It reads the JSON via `import.meta.glob` so a missing file
+  degrades to "no contributors" instead of a build error. It lives in the right sidebar, which
+  Starlight only renders at `lg+` width and only when the page has a TOC — so the splash landing page
+  shows none, and the mobile TOC dropdown is left untouched. Avatars load from
+  `avatars.githubusercontent.com` at runtime (the site's one third-party runtime request).
 
 ## History
 
@@ -94,3 +123,8 @@ content links in one place — chosen over per-component overrides.
   (`inkihh.de` zone, managed via `api.hetzner.cloud/v1`) got a `dzdocs` `CNAME → inkihh.github.io.`
   (ttl 300); the GitHub Pages custom domain was switched via `PUT /repos/inkihh/DZDocs/pages` with a
   fresh Let's Encrypt cert and HTTPS enforced; the previous domain's DNS record was removed.
+- **Per-page contributors:** added a build-time generator (`scripts/contributors.mjs`) plus a
+  `PageSidebar` override that list each page's GitHub contributors (handle + commit count) in the
+  "On this page" panel; the deploy workflow passes `GITHUB_TOKEN` so CI can query the API, and the
+  shallow checkout is retained (the generator needs no git history). See "Behavior: per-page
+  contributors".

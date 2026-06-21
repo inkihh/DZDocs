@@ -22,11 +22,18 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Job-level so the composite action's `npm run build` (which runs the
+    # contributor generator before `astro build`) can read it. The generator
+    # queries the GitHub API for per-page contributors; `contents: read` above is
+    # sufficient scope. GITHUB_REPOSITORY is provided automatically.
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build with Astro
-        # Installs deps, runs `astro build`, and uploads ./dist as the Pages artifact.
+        # Installs deps, runs `npm run build` (contributor generator + `astro
+        # build`), and uploads ./dist as the Pages artifact.
         uses: withastro/action@v3
         with:
           node-version: 22

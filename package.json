@@ -16,7 +16,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/contributors.mjs && astro build",
+    "contributors": "node scripts/contributors.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

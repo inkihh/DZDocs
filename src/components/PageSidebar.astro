@@ -1,0 +1,114 @@
+---
+/*
+ * Extends Starlight's right-hand "On this page" panel with a per-page list of
+ * GitHub contributors (avatar · @handle · commit count), ordered by count.
+ *
+ * The data is generated at build time by scripts/contributors.mjs (run before
+ * `astro build`) into src/data/contributors.json, keyed by each page's
+ * repo-root-relative file path — the same `entry.filePath` exposed here.
+ *
+ * Loaded via import.meta.glob so a missing data file (e.g. a local `astro dev`
+ * before any build has generated it) degrades to "no contributors" instead of a
+ * build error. The block lives inside Starlight's right sidebar, which only
+ * renders when the page has a table of contents — so the splash landing page,
+ * having none, shows no contributors. Desktop-only, mirroring the TOC panel; the
+ * mobile TOC dropdown is left untouched.
+ */
+import Default from '@astrojs/starlight/components/PageSidebar.astro';
+
+const dataModules = import.meta.glob('/src/data/contributors.json', {
+	eager: true,
+	import: 'default',
+});
+/** @type {Record<string, Array<{ login: string; count: number; avatarUrl: string; profileUrl: string }>>} */
+const contributorsByFile = Object.values(dataModules)[0] ?? {};
+
+const { entry } = Astro.locals.starlightRoute;
+const contributors = contributorsByFile[entry.filePath] ?? [];
+---
+
+<Default />
+
+{
+	contributors.length > 0 && (
+		<div class="dzm-contributors sl-hidden lg:sl-block">
+			<h2>Contributors</h2>
+			<ul>
+				{contributors.map((c) => (
+					<li>
+						<a
+							href={c.profileUrl}
+							title={`@${c.login} — ${c.count} ${c.count === 1 ? 'contribution' : 'contributions'}`}
+						>
+							<img
+								src={c.avatarUrl}
+								alt=""
+								width="20"
+								height="20"
+								loading="lazy"
+								decoding="async"
+							/>
+							<span class="dzm-handle">@{c.login}</span>
+							<span class="dzm-count">{c.count}</span>
+						</a>
+					</li>
+				))}
+			</ul>
+		</div>
+	)
+}
+
+<style>
+	.dzm-contributors {
+		margin-top: 1rem;
+		padding: 0 var(--sl-sidebar-pad-x) 1rem;
+	}
+	.dzm-contributors h2 {
+		color: var(--sl-color-white);
+		font-size: var(--sl-text-h5);
+		font-weight: 600;
+		line-height: var(--sl-line-height-headings);
+		margin-bottom: 0.5rem;
+	}
+	.dzm-contributors ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.dzm-contributors li {
+		margin: 0;
+	}
+	.dzm-contributors a {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.2rem 0;
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+		text-decoration: none;
+	}
+	.dzm-contributors a:hover {
+		color: var(--sl-color-white);
+	}
+	.dzm-contributors a:hover .dzm-handle {
+		text-decoration: underline;
+	}
+	.dzm-contributors img {
+		flex-shrink: 0;
+		width: 1.25rem;
+		height: 1.25rem;
+		border-radius: 50%;
+		background: var(--sl-color-gray-6);
+	}
+	.dzm-handle {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.dzm-count {
+		margin-left: auto;
+		padding-left: 0.4rem;
+		color: var(--sl-color-gray-4);
+		font-variant-numeric: tabular-nums;
+	}
+</style>

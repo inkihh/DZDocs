@@ -45,7 +45,7 @@ Result: `data-theme` is always `dark`; the light palette and switcher are gone e
 
 ## Banner & footer overrides (`src/components/`)
 
-Two more registered component overrides, beyond the dark-only pair:
+Three more registered component overrides, beyond the dark-only pair:
 
 - **`Banner.astro`** — replaces Starlight's frontmatter-gated banner with an always-on,
   full-width **"Draft preview"** strip (`.dzm-draft-banner`), pinned `position: fixed` at the
@@ -60,6 +60,9 @@ Two more registered component overrides, beyond the dark-only pair:
 - **`Footer.astro`** — wraps Starlight's default footer and appends a legal/contact row
   (`.dzm-footer-legal`): a link nav of **Sources · Privacy · Contact** plus a "community project ·
   CC BY 4.0 · not affiliated with Bohemia Interactive" line.
+- **`PageSidebar.astro`** — wraps Starlight's "On this page" TOC panel and appends a per-page
+  **Contributors** list (avatar · GitHub handle · commit count). This is a content/build feature,
+  not theming — see [overview.md](overview.md) → "Behavior: per-page contributors".
 
 ## Typography
 

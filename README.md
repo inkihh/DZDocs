@@ -56,7 +56,8 @@ npm run preview  # serve the production build locally
 | `astro.config.mjs` | Site config + the sidebar taxonomy |
 | `src/styles/theme.css` | Site theme (palette, typography, hero, cards) |
 | `src/assets/` | Brand artwork — `logo` (mark), `hero`, `app-icon` |
-| `src/components/` | Starlight component overrides (dark-only: forced theme, no switcher) |
+| `src/components/` | Starlight component overrides (dark-only theme, footer, per-page contributors) |
+| `scripts/contributors.mjs` | Build-time generator for the per-page contributors list (see below) |
 | `public/` | Static files served as-is (`favicon.svg`, `CNAME`) |
 | `CONTRIBUTING.md` | Contributor quick start |
 
@@ -92,6 +93,17 @@ push to `main` — see [`.github/workflows/deploy.yml`](./.github/workflows/depl
 `astro.config.mjs` sets `site: 'https://dzdocs.inkihh.de'`, which drives the
 generated sitemap and canonical URLs — update it if the domain changes. HTTPS uses a
 GitHub-provisioned, auto-renewed Let's Encrypt certificate.
+
+### Per-page contributors
+
+Each page lists its **GitHub contributors** in the right-hand "On this page" panel —
+avatar, `@handle`, and commit count, ordered by count. The list is generated at build
+time by [`scripts/contributors.mjs`](./scripts/contributors.mjs), which asks the GitHub
+API who has committed to each page. Merge commits are skipped, so whoever merges a pull
+request isn't credited — the **PR author** is, including when you merge in the browser.
+It needs no git history, so CI keeps its default shallow checkout; the build only needs a
+`GITHUB_TOKEN`, provided automatically in Actions. Running `npm run build` locally
+without a token simply omits the lists.
 
 ## License
 

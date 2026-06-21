@@ -9,8 +9,12 @@ The site is a static build published to **GitHub Pages** from `inkihh/DZDocs`.
 - **Triggers:** `push` to `main`, plus manual `workflow_dispatch`.
 - **Permissions (least privilege):** `contents: read`, `pages: write`, `id-token: write`.
 - **Concurrency:** group `pages`, `cancel-in-progress: false` (let an in-flight deploy finish).
-- **`build` job:** `actions/checkout@v4` → `withastro/action@v3` (`node-version: 22`) — installs
-  deps, runs `astro build`, uploads `./dist` as the Pages artifact.
+- **`build` job:** sets job-level `env: GITHUB_TOKEN: ${{ github.token }}`, then
+  `actions/checkout@v4` → `withastro/action@v3` (`node-version: 22`) — installs deps and runs
+  `npm run build`, which runs the **per-page contributor generator** (`scripts/contributors.mjs`,
+  querying the GitHub API — `contents: read` suffices) before `astro build`, then uploads `./dist`
+  as the Pages artifact. The checkout stays shallow (default depth); the generator needs no git
+  history. See [overview.md](overview.md) → "Behavior: per-page contributors".
 - **`deploy` job:** `needs: build`, environment `github-pages`, `actions/deploy-pages@v4`.
 
 So **every push to `main` rebuilds and redeploys** the live site.

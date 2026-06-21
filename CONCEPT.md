@@ -119,6 +119,9 @@ that list grows as more are used.
 - **Anyone can contribute** documentation by writing Markdown and opening a pull request.
 - **Core contributors** who help maintain the site get direct repository access; everyone
   else contributes via PRs.
+- **Contributions are credited.** Each page surfaces its GitHub contributors (by handle, with a
+  per-page count) in the page sidebar, so people who help are visibly recognized — reinforcing the
+  welcoming, "build a staircase" stance rather than treating contribution as anonymous labor.
 - **Writers are a first-class need.** Much of the community has deep knowledge but struggles
   to write it clearly; pairing knowledgeable people with strong writers is an explicit goal.
 - **Voice sessions** are planned where people talk through what they know while someone else
